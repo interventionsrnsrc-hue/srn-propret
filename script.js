@@ -1,1 +1,71 @@
-document.querySelectorAll('img[src="assets/logo-srn.png"]').forEach(i=>{i.src='assets/logo-srn.svg'});const dash=document.querySelector('.dashboard-shell');if(dash){dash.outerHTML=`<div class="ops-journal" aria-label="Exemple de journal d’intervention SRN"><div class="journal-label"><span>EXEMPLE DE SUIVI</span><b>SITE / 024</b><small>Journal d’intervention</small></div><div class="journal-flow"><article class="journal-row"><time>07:02</time><div class="journal-line"></div><div><small>OUVERTURE</small><h3>Présence enregistrée.</h3><p>L’intervention démarre. Le passage est tracé dans le dossier du site.</p></div><span class="journal-state">01</span></article><article class="journal-row"><time>10:35</time><div class="journal-line"></div><div><small>CONTRÔLE TERRAIN</small><h3>Le résultat est vérifié.</h3><p>Points de contrôle, observations et actions correctives restent rattachés à l’intervention.</p></div><span class="journal-state">02</span></article><article class="journal-row"><time>11:06</time><div class="journal-line"></div><div><small>CLÔTURE</small><h3>La preuve reste disponible.</h3><p>Photos, compte rendu et historique forment une trace exploitable pour le client et SRN.</p></div><span class="journal-state">03</span></article></div><aside class="journal-note"><span>SRN / MÉTHODE</span><p>Pas un tableau de bord pour faire joli. Un suivi simple : <strong>qui est passé, ce qui a été contrôlé, ce qui reste à traiter.</strong></p></aside></div>`;const note=document.querySelector('.control-note');if(note)note.textContent='Le pilotage doit rester lisible et utile : moins de chiffres décoratifs, plus de traces terrain.';const st=document.createElement('style');st.textContent=`.ops-journal{margin-top:54px;border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);display:grid;grid-template-columns:210px minmax(0,1fr) 310px;min-height:560px}.journal-label{padding:30px 28px 30px 0;border-right:1px solid rgba(255,255,255,.13);display:flex;flex-direction:column}.journal-label span,.journal-note>span{font-size:9px;letter-spacing:.18em;color:#718078}.journal-label b{font-size:clamp(34px,4vw,60px);line-height:.92;letter-spacing:-.05em;margin-top:auto}.journal-label small{font-size:10px;color:#718078;margin-top:10px}.journal-flow{padding:0 38px}.journal-row{position:relative;min-height:33.33%;display:grid;grid-template-columns:80px 1px minmax(0,1fr) 44px;gap:24px;align-items:center;border-bottom:1px solid rgba(255,255,255,.12)}.journal-row:last-child{border-bottom:0}.journal-row time{font-size:12px;font-variant-numeric:tabular-nums;color:#93a198;align-self:start;padding-top:34px}.journal-line{height:100%;background:rgba(255,255,255,.13);position:relative}.journal-line:before{content:'';position:absolute;width:9px;height:9px;border-radius:50%;background:#00a94f;left:50%;top:38px;transform:translateX(-50%);box-shadow:0 0 0 6px rgba(0,170,75,.08)}.journal-row small{font-size:8px;letter-spacing:.18em;color:#6f7f76}.journal-row h3{font-size:clamp(23px,2.6vw,38px);line-height:1;letter-spacing:-.04em;margin:9px 0 8px}.journal-row p{max-width:630px;margin:0;color:#7f8f85;font-size:12px;line-height:1.55}.journal-state{font-size:11px;color:#55645b;align-self:start;padding-top:34px;text-align:right}.journal-note{border-left:1px solid rgba(255,255,255,.13);padding:34px 0 34px 32px;display:flex;flex-direction:column;justify-content:flex-end}.journal-note:before{content:'SRN';font-size:clamp(72px,8vw,128px);line-height:.8;font-weight:900;letter-spacing:-.08em;color:rgba(255,255,255,.045);margin-bottom:auto}.journal-note p{font-size:18px;line-height:1.45;letter-spacing:-.02em;color:#9aa79f;margin:20px 0 0}.journal-note strong{color:#f3f5f3;font-weight:600}.control-note{margin-left:210px!important;max-width:760px!important}@media(max-width:900px){.ops-journal{grid-template-columns:1fr;min-height:0}.journal-label{min-height:180px;padding:24px 0;border-right:0;border-bottom:1px solid rgba(255,255,255,.13)}.journal-flow{padding:0}.journal-row{grid-template-columns:54px 1px minmax(0,1fr) 26px;gap:14px;padding:18px 0;min-height:210px}.journal-row time,.journal-state{padding-top:18px}.journal-line:before{top:22px}.journal-row h3{font-size:30px}.journal-row p{font-size:11px}.journal-note{border-left:0;border-top:1px solid rgba(255,255,255,.13);padding:30px 0}.journal-note:before{display:none}.journal-note p{font-size:16px;max-width:520px}.control-note{margin-left:0!important}}`;document.head.appendChild(st)}const clamp=(n,min,max)=>Math.min(Math.max(n,min),max);const progressBar=document.getElementById('progressBar');const nav=document.getElementById('nav');const promise=document.getElementById('promise');const cleanLayer=document.getElementById('cleanLayer');const wiper=document.getElementById('wiper');const robotSection=document.getElementById('robot');const robotUnit=document.getElementById('robotUnit');const cleanTrail=document.getElementById('cleanTrail');function onScroll(){const doc=document.documentElement;const p=scrollY/(doc.scrollHeight-innerHeight);progressBar.style.height=`${p*100}%`;const center=scrollY+innerHeight*.35;let light=false;document.querySelectorAll('.scene[data-theme]').forEach(s=>{const r=s.offsetTop;if(center>=r&&center<r+s.offsetHeight)light=s.dataset.theme==='light'});nav.classList.toggle('light',light);if(promise){const start=promise.offsetTop;const range=promise.offsetHeight-innerHeight;const pp=clamp((scrollY-start)/range,0,1);const reveal=clamp((pp-.12)/.68,0,1);cleanLayer.style.clipPath=`inset(0 ${100-reveal*100}% 0 0)`;const box=document.querySelector('.glass-demo');if(box)wiper.style.left=`calc(${reveal*100}% - 24px)`}if(robotSection){const start=robotSection.offsetTop;const range=robotSection.offsetHeight-innerHeight;const rp=clamp((scrollY-start+innerHeight*.15)/Math.max(range+innerHeight*.7,1),0,1);const y=72-rp*48;robotUnit.style.top=`${y}%`;cleanTrail.style.height=`${100-y}%`;cleanTrail.style.bottom='0'}}addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();const form=document.getElementById('quoteForm');let current=1;const answers={};function showStep(n){form.querySelectorAll('.step').forEach(s=>s.classList.toggle('active',Number(s.dataset.step)===n));current=n}form.querySelectorAll('.choices button').forEach(btn=>btn.addEventListener('click',()=>{answers[current]=btn.dataset.value;showStep(current+1)}));form.querySelectorAll('.back').forEach(btn=>btn.addEventListener('click',()=>showStep(Math.max(1,current-1))));form.addEventListener('submit',e=>{e.preventDefault();showStep(4)});document.getElementById('restart').addEventListener('click',()=>showStep(1));
+const clamp=(n,min,max)=>Math.min(Math.max(n,min),max);
+const progressBar=document.getElementById('progressBar');
+const nav=document.getElementById('nav');
+const promise=document.getElementById('promise');
+const cleanLayer=document.getElementById('cleanLayer');
+const wiper=document.getElementById('wiper');
+const control=document.getElementById('control');
+const controlVisual=document.getElementById('controlVisual');
+const robotSection=document.getElementById('robot');
+const robotUnit=document.getElementById('robotUnit');
+const cleanTrail=document.getElementById('cleanTrail');
+
+function onScroll(){
+  const doc=document.documentElement;
+  const max=Math.max(doc.scrollHeight-innerHeight,1);
+  const p=scrollY/max;
+  if(progressBar) progressBar.style.height=`${p*100}%`;
+
+  const center=scrollY+innerHeight*.35;
+  let light=false;
+  document.querySelectorAll('.scene[data-theme]').forEach(s=>{
+    if(center>=s.offsetTop && center<s.offsetTop+s.offsetHeight) light=s.dataset.theme==='light';
+  });
+  nav?.classList.toggle('light',light);
+
+  if(promise && cleanLayer && wiper){
+    const start=promise.offsetTop;
+    const range=promise.offsetHeight-innerHeight;
+    const pp=clamp((scrollY-start)/Math.max(range,1),0,1);
+    const reveal=clamp((pp-.12)/.68,0,1);
+    cleanLayer.style.clipPath=`inset(0 ${100-reveal*100}% 0 0)`;
+    wiper.style.left=`calc(${reveal*100}% - 24px)`;
+  }
+
+  if(control && controlVisual){
+    const r=control.getBoundingClientRect();
+    const cp=clamp((innerHeight-r.top)/(innerHeight+r.height*.55),0,1);
+    const scale=.94+cp*.06;
+    controlVisual.style.transform=`scale(${scale})`;
+  }
+
+  if(robotSection && robotUnit && cleanTrail){
+    const start=robotSection.offsetTop;
+    const range=robotSection.offsetHeight-innerHeight;
+    const rp=clamp((scrollY-start+innerHeight*.15)/Math.max(range+innerHeight*.7,1),0,1);
+    const y=72-rp*48;
+    robotUnit.style.top=`${y}%`;
+    cleanTrail.style.height=`${100-y}%`;
+    cleanTrail.style.bottom='0';
+  }
+}
+addEventListener('scroll',onScroll,{passive:true});
+addEventListener('resize',onScroll);
+onScroll();
+
+const form=document.getElementById('quoteForm');
+if(form){
+  let current=1;
+  const answers={};
+  const showStep=n=>{
+    form.querySelectorAll('.step').forEach(s=>s.classList.toggle('active',Number(s.dataset.step)===n));
+    current=n;
+  };
+  form.querySelectorAll('.choices button').forEach(btn=>btn.addEventListener('click',()=>{
+    answers[current]=btn.dataset.value;
+    showStep(current+1);
+  }));
+  form.querySelectorAll('.back').forEach(btn=>btn.addEventListener('click',()=>showStep(Math.max(1,current-1))));
+  form.addEventListener('submit',e=>{e.preventDefault();showStep(4)});
+  document.getElementById('restart')?.addEventListener('click',()=>showStep(1));
+}
