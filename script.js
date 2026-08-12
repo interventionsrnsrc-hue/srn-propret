@@ -53,6 +53,18 @@ addEventListener('scroll',onScroll,{passive:true});
 addEventListener('resize',onScroll);
 onScroll();
 
+const serviceLinks={c1:'/nettoyage-multisites/',c2:'/remise-en-etat/',c3:'/vitrerie-professionnelle/',c4:'/nettoyage-mecanise-sols/'};
+document.querySelectorAll('.service-card').forEach(card=>{
+  const cls=[...card.classList].find(c=>serviceLinks[c]);
+  if(!cls) return;
+  const go=()=>location.href=serviceLinks[cls];
+  card.setAttribute('role','link');
+  card.setAttribute('tabindex','0');
+  card.style.cursor='pointer';
+  card.addEventListener('click',go);
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+});
+
 const form=document.getElementById('quoteForm');
 if(form){
   let current=1;
