@@ -69,6 +69,8 @@ const form=document.getElementById('quoteForm');
 if(form){
   let current=1;
   const answers={};
+  const successText=form.querySelector('.success p');
+  if(successText) successText.textContent='Votre demande a bien été transmise à l’équipe SRN. Nous revenons vers vous pour qualifier le besoin et organiser la suite.';
   const showStep=n=>{
     form.querySelectorAll('.step').forEach(s=>s.classList.toggle('active',Number(s.dataset.step)===n));
     current=n;
