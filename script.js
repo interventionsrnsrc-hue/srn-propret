@@ -28,8 +28,8 @@ function onScroll(){
     const range=promise.offsetHeight-innerHeight;
     const pp=clamp((scrollY-start)/Math.max(range,1),0,1);
     const reveal=clamp((pp-.12)/.68,0,1);
-    cleanLayer.style.clipPath=`inset(0 ${100-reveal*100}% 0 0)`;
-    wiper.style.left=`calc(${reveal*100}% - 24px)`;
+    cleanLayer.style.clipPath=`inset(0 0 ${100-reveal*100}% 0)`;
+    wiper.style.top=`calc(${reveal*100}% - 18px)`;
   }
 
   if(control && controlVisual){
