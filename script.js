@@ -9,7 +9,6 @@ const controlVisual=document.getElementById('controlVisual');
 const robotSection=document.getElementById('robot');
 const robotUnit=document.getElementById('robotUnit');
 const cleanTrail=document.getElementById('cleanTrail');
-const commercialEmail='interventionsrnsrc@gmail.com';
 
 function onScroll(){
   const doc=document.documentElement;
@@ -79,38 +78,38 @@ if(form){
     showStep(current+1);
   }));
   form.querySelectorAll('.back').forEach(btn=>btn.addEventListener('click',()=>showStep(Math.max(1,current-1))));
-  form.addEventListener('submit',e=>{
+  form.addEventListener('submit',async e=>{
     e.preventDefault();
-    const data=new FormData(form);
-    const company=data.get('company')||'';
-    const name=data.get('name')||'';
-    const email=data.get('email')||'';
-    const phone=data.get('phone')||'';
-    const need=answers[1]||'Non précisé';
-    const sites=answers[2]||'Non précisé';
-    const subject=`Demande site SRN — ${company||name||'Nouveau prospect'}`;
-    const body=[
-      'Nouvelle demande depuis srn-proprete.com',
-      '',
-      `Besoin : ${need}`,
-      `Nombre de sites : ${sites}`,
-      `Société : ${company}`,
-      `Nom : ${name}`,
-      `E-mail : ${email}`,
-      `Téléphone : ${phone}`
-    ].join('\n');
-    window.location.href=`mailto:${commercialEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const success=form.querySelector('.step.success p');
-    if(success) success.innerHTML=`Votre demande est préparée pour <strong>${commercialEmail}</strong>. Votre messagerie va s’ouvrir pour l’envoyer.`;
-    showStep(4);
+    const submit=form.querySelector('.submit');
+    const original=submit?.innerHTML;
+    if(submit){submit.disabled=true;submit.textContent='Envoi en cours…';}
+    const fd=new FormData(form);
+    const payload={
+      '_subject':'Nouvelle demande depuis srn-proprete.com',
+      '_template':'table',
+      '_replyto':fd.get('email')||'',
+      '_url':location.href,
+      'Besoin':answers[1]||'Non précisé',
+      'Nombre de sites':answers[2]||'Non précisé',
+      'Société':fd.get('company')||'',
+      'Nom et prénom':fd.get('name')||'',
+      'Email':fd.get('email')||'',
+      'Téléphone':fd.get('phone')||''
+    };
+    try{
+      const res=await fetch('https://formsubmit.co/ajax/interventionsrnsrc@gmail.com',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(payload)
+      });
+      if(!res.ok) throw new Error('Envoi impossible');
+      showStep(4);
+      form.reset();
+    }catch(err){
+      alert('La demande n’a pas pu partir. Vous pouvez écrire directement à interventionsrnsrc@gmail.com.');
+    }finally{
+      if(submit){submit.disabled=false;submit.innerHTML=original;}
+    }
   });
   document.getElementById('restart')?.addEventListener('click',()=>showStep(1));
-}
-
-const footer=document.querySelector('.contact footer');
-if(footer){
-  const mail=document.createElement('a');
-  mail.href=`mailto:${commercialEmail}`;
-  mail.textContent=commercialEmail;
-  footer.insertBefore(mail,footer.lastElementChild);
 }
