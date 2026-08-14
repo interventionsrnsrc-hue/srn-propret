@@ -1,5 +1,40 @@
 const clamp=(n,min,max)=>Math.min(Math.max(n,min),max);
 
+const galleryStyles=document.createElement('link');
+galleryStyles.rel='stylesheet';
+galleryStyles.href='premium-gallery.css';
+document.head.appendChild(galleryStyles);
+
+const comparisonsGrid=document.querySelector('.comparisons');
+if(comparisonsGrid&&!document.querySelector('.secondary-media')){
+  comparisonsGrid.insertAdjacentHTML('beforeend',`
+    <article class="comparison reveal" data-compare>
+      <div class="compare-media secondary-media">
+        <div class="proof-image secondary-sprite dump-before before" role="img" aria-label="Zone encombrée avant intervention SRN"></div>
+        <div class="after-wrap" data-after>
+          <div class="proof-image secondary-sprite dump-after after" role="img" aria-label="Zone remise en état après intervention SRN"></div>
+        </div>
+        <div class="compare-line" data-line><span>↔</span></div>
+        <input class="compare-range" type="range" min="0" max="100" value="51" aria-label="Comparer avant et après : restitution d'une zone extérieure" />
+        <span class="badge before-badge">AVANT</span>
+        <span class="badge after-badge">APRÈS</span>
+      </div>
+      <div class="compare-caption"><small>04 / INTERVENTION</small><h3>RESTITUTION DE ZONE</h3><p>Retrait des encombrants et remise en état visible de l’espace.</p></div>
+    </article>`);
+
+  comparisonsGrid.insertAdjacentHTML('afterend',`
+    <div class="editorial-grid">
+      <figure class="editorial-image reveal">
+        <div class="editorial-shot detail-shot" role="img" aria-label="Détail terrain avant une intervention de remise en état SRN"></div>
+        <figcaption><span>DÉTAIL TERRAIN</span><small>La réalité avant intervention.</small></figcaption>
+      </figure>
+      <figure class="editorial-image reveal">
+        <div class="editorial-shot retail-shot" role="img" aria-label="Environnement retail entretenu par SRN, enseigne masquée"></div>
+        <figcaption><span>ENVIRONNEMENT RETAIL</span><small>Une exécution discrète dans des lieux exigeants.</small></figcaption>
+      </figure>
+    </div>`);
+}
+
 const progress=document.getElementById('pageProgress');
 const nav=document.getElementById('nav');
 
