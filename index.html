@@ -3,33 +3,206 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="SRN Réseau Nettoyage — entretien professionnel, multi-sites, vitrerie, remises en état et interventions spécialisées. La propreté pilotée et vérifiable." />
+  <meta name="description" content="SRN Réseau Nettoyage — La propreté pilotée. Entretien professionnel, multi-sites, remises en état, vitrerie et interventions spécialisées, avec contrôle terrain et preuves." />
   <meta name="theme-color" content="#07110c" />
   <link rel="canonical" href="https://srn-proprete.com/" />
   <meta property="og:title" content="SRN — La propreté. Pilotée." />
-  <meta property="og:description" content="Entretien professionnel, multi-sites, vitrerie, remises en état et interventions spécialisées." />
+  <meta property="og:description" content="Une propreté professionnelle exécutée, contrôlée et documentée." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://srn-proprete.com/" />
   <title>SRN — La propreté. Pilotée.</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    .references{background:#f3f1e9;color:#060c09;padding:76px 0 70px;overflow:hidden;border-top:1px solid #00000012;border-bottom:1px solid #00000012}.references-head{padding:0 6vw 32px}.references-head h2{font-size:clamp(38px,5.6vw,78px);line-height:.9;letter-spacing:-.055em;margin:0;max-width:950px}.references-head h2 span{color:#0b7658}.references-rail{position:relative;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}.references-track{width:max-content;display:flex;align-items:center;gap:16px;animation:referencesRight 34s linear infinite;will-change:transform}.references-track:hover{animation-play-state:paused}.reference-logo{height:92px;min-width:190px;padding:0 30px;border:1px solid #00000014;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:clamp(18px,1.8vw,28px);font-weight:800;letter-spacing:-.035em;white-space:nowrap;box-shadow:0 12px 28px #00000008}.reference-logo.light{font-weight:650;letter-spacing:-.02em}.reference-logo.spie{color:#ed1c24;font-weight:900;letter-spacing:.04em}.reference-logo.cbre{color:#006b54;font-weight:900;letter-spacing:.02em}.reference-logo.delsey{font-weight:900;letter-spacing:.08em}.reference-logo.ultra{font-weight:900;letter-spacing:-.055em}.reference-logo.habitat{font-size:20px;line-height:1.05;text-align:center}.reference-logo.pec{font-size:17px;line-height:1.05;text-align:center}.reference-logo.esset{font-weight:900}.reference-logo.sogaris{font-weight:900}.reference-logo.monga{font-weight:900;letter-spacing:.02em}@keyframes referencesRight{from{transform:translateX(calc(-50% - 8px))}to{transform:translateX(0)}}@media(max-width:900px){.references{padding:64px 0 56px}.references-head{padding:0 20px 26px}.reference-logo{height:76px;min-width:155px;padding:0 22px;font-size:20px}.reference-logo.habitat{font-size:16px}.reference-logo.pec{font-size:14px}.references-track{animation-duration:28s}}@media(prefers-reduced-motion:reduce){.references-track{animation:none;transform:none}}
-  </style>
+  <link rel="stylesheet" href="premium.css" />
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
-  <header class="nav" id="nav"><a class="brand" href="#hero" aria-label="Smith Nettoyage, accueil"><img src="assets/logo-srn.webp" alt="Smith Nettoyage" /></a><nav class="navlinks" aria-label="Navigation principale"><a href="#solutions">Solutions</a><a href="#control">Pilotage</a><a href="#preuves">Méthode</a></nav><a class="nav-cta" href="#contact">Demander une visite <span>↗</span></a></header>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="page-progress" aria-hidden="true"><span id="pageProgress"></span></div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="SRN, accueil">
+      <img src="assets/logo-srn.webp" alt="SRN Propreté" />
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#pilotage">Pilotage</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#expertises">Expertises</a>
+      <a href="#references">Références</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Demander une visite <span>↗</span></a>
+  </header>
+
   <main>
-    <section class="scene hero" id="hero" data-theme="dark"><div class="hero-grid" aria-hidden="true"></div><div class="hero-glow glow-a" aria-hidden="true"></div><div class="hero-glow glow-b" aria-hidden="true"></div><div class="hero-copy"><p class="eyebrow reveal">SMITH RÉSEAU NETTOYAGE — B2B</p><h1 class="display reveal">LA PROPRETÉ.<br><span>PILOTÉE.</span></h1><p class="hero-text reveal">Entretien professionnel, multi-sites, vitrerie, remises en état et interventions spécialisées. Une exécution terrain suivie, contrôlée et documentée.</p><div class="hero-actions reveal"><a href="#contact" class="button primary">Demander une visite <span>↗</span></a><a href="#promise" class="button ghost">Découvrir l’approche <span>↓</span></a></div></div><div class="hero-side reveal" aria-label="Positionnement SRN"><div class="hero-side-line"><span>01</span><b>ENTRETIEN</b><small>Contrats & multi-sites</small></div><div class="hero-side-line"><span>02</span><b>CONTRÔLE</b><small>Qualité documentée</small></div><div class="hero-side-line"><span>03</span><b>PREUVE</b><small>Rapports & historique</small></div><div class="hero-signature">TECH D’UN GRAND GROUPE.<br><strong>RÉACTIVITÉ D’UNE PME.</strong></div></div><div class="scroll-hint"><span>SCROLL</span><i></i></div></section>
-    <section class="scene promise" id="promise" data-theme="light"><div class="promise-fixed"><p class="eyebrow dark">LA DIFFÉRENCE SRN</p><h2>VOUS NE DEVRIEZ PAS<br>SEULEMENT <em>CROIRE</em><br>QUE C’EST PROPRE.</h2><p class="promise-end">VOUS DEVRIEZ POUVOIR <strong>LE VÉRIFIER.</strong></p></div><div class="glass-demo" aria-hidden="true"><div class="dirty-layer"></div><div class="clean-layer" id="cleanLayer"><div class="clean-ui"><span>CONTRÔLE 07:42</span><b>QUALITÉ VALIDÉE</b></div></div><div class="wiper" id="wiper"><span>SRN</span></div></div></section>
-    <section class="scene control" id="control" data-theme="dark"><div class="control-intro"><p class="eyebrow">SRN CONTROL</p><h2>CHAQUE INTERVENTION.<br><span>ENTIÈREMENT TRACÉE.</span></h2><p>Le suivi n’est pas un décor. Il sert à savoir qui est passé, ce qui a été contrôlé et quelles preuves restent disponibles.</p></div><figure class="control-visual" id="controlVisual"><img src="assets/srn-control-approved.webp" alt="SRN Control : présence enregistrée, résultat vérifié et preuve disponible" /></figure></section>
-    <section class="scene solutions" id="solutions" data-theme="light"><div class="section-head dark-head"><p class="eyebrow dark">NOS SOLUTIONS</p><h2>UN BESOIN.<br><span>UNE EXÉCUTION NETTE.</span></h2></div><div class="cards" id="serviceCards"><article class="service-card c1"><div class="service-meta"><span>01</span><small>CONTRATS</small></div><div class="service-stage office" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="service-copy"><h3>ENTRETIEN &<br>MULTI-SITES</h3><p>Bureaux, sièges, commerces, parties communes et sites logistiques.</p></div><span class="arrow">↗</span></article><article class="service-card c2"><div class="service-meta"><span>02</span><small>PONCTUEL</small></div><div class="service-stage chantier" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="service-copy"><h3>REMISE<br>EN ÉTAT</h3><p>Après travaux, déménagement, sinistre et remise à niveau technique.</p></div><span class="arrow">↗</span></article><article class="service-card c3"><div class="service-meta"><span>03</span><small>TECHNIQUE</small></div><div class="service-stage vitre" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="service-copy"><h3>VITRERIE</h3><p>Surfaces vitrées, grandes baies, mécanisation et robotisation ciblée.</p></div><span class="arrow">↗</span></article><article class="service-card c4"><div class="service-meta"><span>04</span><small>MÉCANISÉ</small></div><div class="service-stage sols" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="service-copy"><h3>SOLS &<br>GRANDES SURFACES</h3><p>Autolaveuse, monobrosse, parkings, entrepôts et grandes surfaces.</p></div><span class="arrow">↗</span></article></div><div class="swipe-label">GLISSEZ / SCROLLEZ <span>→</span></div></section>
-    <section class="scene robot" id="robot" data-theme="dark"><div class="robot-copy"><p class="eyebrow">TECHNOLOGIE TERRAIN</p><h2>L’HUMAIN LÀ OÙ<br>IL APPORTE <span>DE LA VALEUR.</span></h2><p>La mécanisation et la robotisation ne remplacent pas le savoir-faire : elles renforcent la sécurité, la régularité et la productivité lorsque le contexte le permet.</p></div><div class="window" id="windowPane"><div class="pane-lines"></div><div class="robot-unit" id="robotUnit"><div class="robot-eye"></div><b>SRN</b><small>VITRERIE</small></div><div class="clean-trail" id="cleanTrail"></div></div><div class="robot-caption"><b>VITRERIE.</b><span>MÉCANISÉE.</span></div></section>
-    <section class="scene proofs" id="preuves" data-theme="light"><div class="proof-intro"><p class="eyebrow dark">MÉTHODE SRN</p><h2>MOINS DE PROMESSES.<br><span>PLUS DE PREUVES.</span></h2></div><div class="proof-stack"><article><small>01 / PRÉSENCE</small><h3>UN PASSAGE<br>DOIT ÊTRE TRAÇABLE.</h3><p>Une intervention identifiable, datée et rattachée au bon site.</p></article><article><small>02 / QUALITÉ</small><h3>LE CONTRÔLE<br>N’EST PAS UNE OPTION.</h3><p>Points de contrôle, observations et actions correctives restent liés à l’intervention.</p></article><article><small>03 / RAPPORT</small><h3>LA PREUVE RESTE<br>DISPONIBLE.</h3><p>Photos, compte rendu et historique facilitent validation, suivi et facturation.</p></article></div></section>
-    <section class="references" id="references" aria-label="Références clients"><div class="references-head"><h2>ILS ONT DÉJÀ CHOISI<br><span>LA SOLUTION SRN.</span></h2></div><div class="references-rail"><div class="references-track" aria-label="Références"><span class="reference-logo sogaris">SOGARIS</span><span class="reference-logo habitat">Habitat<br>& Humanisme</span><span class="reference-logo light">FONCIA</span><span class="reference-logo cbre">CBRE</span><span class="reference-logo esset">ESSET</span><span class="reference-logo light">BNP PARIBAS REAL ESTATE</span><span class="reference-logo pec">PARIS ENTERTAINMENT<br>COMPANY</span><span class="reference-logo ultra">UltraEdge</span><span class="reference-logo delsey">DELSEY PARIS</span><span class="reference-logo spie">SPIE</span><span class="reference-logo monga">MONGA</span><span class="reference-logo sogaris" aria-hidden="true">SOGARIS</span><span class="reference-logo habitat" aria-hidden="true">Habitat<br>& Humanisme</span><span class="reference-logo light" aria-hidden="true">FONCIA</span><span class="reference-logo cbre" aria-hidden="true">CBRE</span><span class="reference-logo esset" aria-hidden="true">ESSET</span><span class="reference-logo light" aria-hidden="true">BNP PARIBAS REAL ESTATE</span><span class="reference-logo pec" aria-hidden="true">PARIS ENTERTAINMENT<br>COMPANY</span><span class="reference-logo ultra" aria-hidden="true">UltraEdge</span><span class="reference-logo delsey" aria-hidden="true">DELSEY PARIS</span><span class="reference-logo spie" aria-hidden="true">SPIE</span><span class="reference-logo monga" aria-hidden="true">MONGA</span></div></div></section>
-    <section class="scene contact" id="contact" data-theme="dark"><div class="contact-left"><p class="eyebrow">VOTRE PROCHAIN SITE</p><h2>PARLONS<br><span>DU TERRAIN.</span></h2><p>Un parcours court pour qualifier le besoin avant la visite technique ou la proposition commerciale.</p></div><form class="quote-form" id="quoteForm"><div class="step active" data-step="1"><small>01 / 03</small><h3>Quel est votre besoin ?</h3><div class="choices"><button type="button" data-value="Contrat d'entretien">Contrat d’entretien</button><button type="button" data-value="Remise en état">Remise en état</button><button type="button" data-value="Vitrerie">Vitrerie</button><button type="button" data-value="Intervention ponctuelle">Intervention ponctuelle</button></div></div><div class="step" data-step="2"><small>02 / 03</small><h3>Combien de sites ?</h3><div class="choices compact"><button type="button" data-value="1">1</button><button type="button" data-value="2-5">2–5</button><button type="button" data-value="6-20">6–20</button><button type="button" data-value="20+">20+</button></div><button type="button" class="back">← Retour</button></div><div class="step" data-step="3"><small>03 / 03</small><h3>Vos coordonnées</h3><div class="fields"><input required name="company" placeholder="Société" /><input required name="name" placeholder="Nom et prénom" /><input type="email" required name="email" placeholder="E-mail professionnel" /><input name="phone" placeholder="Téléphone" /></div><button type="submit" class="submit">Demander une visite <span>↗</span></button><button type="button" class="back">← Retour</button></div><div class="step success" data-step="4"><small>DEMANDE ENVOYÉE</small><h3>Merci.</h3><p>Votre demande a bien été transmise à l’équipe SRN.</p><button type="button" id="restart">Recommencer</button></div></form><footer><span>SMITH RÉSEAU NETTOYAGE</span><span>56 boulevard de Courcerin • 77183 Croissy-Beaubourg</span><span>© 2026 SRN</span></footer></section>
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-a" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-b" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow reveal">SMITH RÉSEAU NETTOYAGE — ÎLE-DE-FRANCE</p>
+        <h1 class="reveal">LA PROPRETÉ.<br><span>PILOTÉE.</span></h1>
+        <p class="hero-lead reveal">Nous ne vendons pas seulement une prestation de nettoyage. Nous organisons une exécution terrain suivie, contrôlée et documentée.</p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="#contact">Demander une visite <span>↗</span></a>
+          <a class="btn btn-line" href="#realisations">Voir les preuves <span>↓</span></a>
+        </div>
+      </div>
+      <div class="hero-index reveal" aria-label="Méthode SRN">
+        <div><span>01</span><b>PRÉSENCE</b><small>Un passage identifiable</small></div>
+        <div><span>02</span><b>CONTRÔLE</b><small>Une qualité vérifiée</small></div>
+        <div><span>03</span><b>PREUVE</b><small>Un résultat documenté</small></div>
+      </div>
+      <div class="hero-footer">
+        <span>TECH D’UN GRAND GROUPE.</span>
+        <strong>RÉACTIVITÉ D’UNE PME.</strong>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="manifesto-sticky">
+        <p class="eyebrow dark reveal">LA DIFFÉRENCE SRN</p>
+        <h2 class="reveal">VOUS NE DEVRIEZ PAS<br>SEULEMENT <em>CROIRE</em><br>QUE C’EST PROPRE.</h2>
+        <p class="manifesto-end reveal">VOUS DEVRIEZ POUVOIR <strong>LE VÉRIFIER.</strong></p>
+      </div>
+      <div class="manifesto-card reveal">
+        <div class="manifesto-card-top"><span>SRN CONTROL</span><i></i><span>VALIDÉ</span></div>
+        <div class="manifesto-ring"><span>✓</span></div>
+        <div class="manifesto-card-copy">
+          <small>INTERVENTION</small>
+          <strong>Exécutée</strong>
+          <small>CONTRÔLE</small>
+          <strong>Validé</strong>
+          <small>PREUVE</small>
+          <strong>Disponible</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="pilotage" id="pilotage">
+      <div class="section-heading reveal">
+        <p class="eyebrow">PILOTAGE TERRAIN</p>
+        <h2>CE QUI COMPTE<br><span>RESTE VISIBLE.</span></h2>
+      </div>
+      <div class="pilotage-grid">
+        <article class="pilotage-card reveal">
+          <span>01</span>
+          <h3>PASSAGE<br>TRAÇABLE</h3>
+          <p>Une intervention datée, identifiable et rattachée au bon site.</p>
+        </article>
+        <article class="pilotage-card reveal">
+          <span>02</span>
+          <h3>CONTRÔLE<br>TERRAIN</h3>
+          <p>Les points de contrôle et les actions correctives restent liés à l’intervention.</p>
+        </article>
+        <article class="pilotage-card reveal">
+          <span>03</span>
+          <h3>RAPPORT<br>PHOTO</h3>
+          <p>Le résultat peut être documenté pour faciliter le suivi et la validation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="proofs" id="realisations">
+      <div class="proofs-intro">
+        <div class="section-heading dark-heading reveal">
+          <p class="eyebrow dark">PREUVES TERRAIN</p>
+          <h2>AVANT. APRÈS.<br><span>SANS DISCOURS.</span></h2>
+        </div>
+        <p class="proofs-copy reveal">Des situations réelles issues de nos interventions. Faites glisser le curseur sur chaque réalisation pour comparer.</p>
+      </div>
+
+      <div class="comparisons">
+        <article class="comparison reveal" data-compare>
+          <div class="compare-media">
+            <div class="proof-image floor-before before" role="img" aria-label="Sol avant intervention SRN"></div>
+            <div class="after-wrap" data-after>
+              <div class="proof-image floor-after after" role="img" aria-label="Sol après intervention SRN"></div>
+            </div>
+            <div class="compare-line" data-line><span>↔</span></div>
+            <input class="compare-range" type="range" min="0" max="100" value="52" aria-label="Comparer avant et après : remise en état d'un sol" />
+            <span class="badge before-badge">AVANT</span>
+            <span class="badge after-badge">APRÈS</span>
+          </div>
+          <div class="compare-caption"><small>01 / SOLS</small><h3>REMISE EN ÉTAT</h3><p>Nettoyage approfondi et restitution visuelle du support.</p></div>
+        </article>
+
+        <article class="comparison reveal" data-compare>
+          <div class="compare-media landscape">
+            <div class="proof-image waste-before before" role="img" aria-label="Zone déchets avant intervention SRN"></div>
+            <div class="after-wrap" data-after>
+              <div class="proof-image waste-after after" role="img" aria-label="Zone déchets après intervention SRN"></div>
+            </div>
+            <div class="compare-line" data-line><span>↔</span></div>
+            <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparer avant et après : zone déchets" />
+            <span class="badge before-badge">AVANT</span>
+            <span class="badge after-badge">APRÈS</span>
+          </div>
+          <div class="compare-caption"><small>02 / EXTÉRIEURS</small><h3>ZONE DÉCHETS</h3><p>Débarras, remise en ordre et restitution d’une zone d’exploitation.</p></div>
+        </article>
+
+        <article class="comparison reveal" data-compare>
+          <div class="compare-media">
+            <div class="proof-image exterior-before before" role="img" aria-label="Abords extérieurs avant intervention SRN"></div>
+            <div class="after-wrap" data-after>
+              <div class="proof-image exterior-after after" role="img" aria-label="Abords extérieurs après intervention SRN"></div>
+            </div>
+            <div class="compare-line" data-line><span>↔</span></div>
+            <input class="compare-range" type="range" min="0" max="100" value="48" aria-label="Comparer avant et après : remise en état extérieure" />
+            <span class="badge before-badge">AVANT</span>
+            <span class="badge after-badge">APRÈS</span>
+          </div>
+          <div class="compare-caption"><small>03 / REMISE EN ÉTAT</small><h3>ABORDS DE SITE</h3><p>Évacuation, nettoyage et remise à niveau des extérieurs.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="expertises" id="expertises">
+      <div class="section-heading dark-heading reveal">
+        <p class="eyebrow dark">EXPERTISES</p>
+        <h2>UN BESOIN.<br><span>UNE EXÉCUTION NETTE.</span></h2>
+      </div>
+      <div class="expertise-list">
+        <a class="expertise-row reveal" href="nettoyage-bureaux/"><span>01</span><h3>ENTRETIEN DE BUREAUX</h3><p>Contrats récurrents, sièges et espaces tertiaires.</p><i>↗</i></a>
+        <a class="expertise-row reveal" href="nettoyage-multisites/"><span>02</span><h3>MULTI-SITES</h3><p>Organisation homogène et suivi d’un parc de sites.</p><i>↗</i></a>
+        <a class="expertise-row reveal" href="nettoyage-entrepots-logistique/"><span>03</span><h3>LOGISTIQUE & ENTREPÔTS</h3><p>Grandes surfaces, zones d’exploitation et flux.</p><i>↗</i></a>
+        <a class="expertise-row reveal" href="remise-en-etat/"><span>04</span><h3>REMISE EN ÉTAT</h3><p>Après travaux, déménagement, sinistre ou remise à niveau.</p><i>↗</i></a>
+        <a class="expertise-row reveal" href="nettoyage-mecanise-sols/"><span>05</span><h3>SOLS & MÉCANISATION</h3><p>Autolaveuse, monobrosse et grandes surfaces.</p><i>↗</i></a>
+      </div>
+    </section>
+
+    <section class="references" id="references">
+      <div class="references-copy reveal">
+        <p class="eyebrow">ILS NOUS FONT CONFIANCE</p>
+        <h2>DES PARTENAIRES<br><span>DE RÉFÉRENCE.</span></h2>
+      </div>
+      <div class="reference-rail" aria-label="Références clients">
+        <div class="reference-track">
+          <span>SOGARIS</span><span>HABITAT & HUMANISME</span><span>FONCIA</span><span>CBRE</span><span>ESSET</span><span>BNP PARIBAS REAL ESTATE</span><span>PARIS ENTERTAINMENT COMPANY</span><span>ULTRAEDGE</span><span>DELSEY PARIS</span><span>SPIE</span><span>MONGA</span>
+          <span aria-hidden="true">SOGARIS</span><span aria-hidden="true">HABITAT & HUMANISME</span><span aria-hidden="true">FONCIA</span><span aria-hidden="true">CBRE</span><span aria-hidden="true">ESSET</span><span aria-hidden="true">BNP PARIBAS REAL ESTATE</span><span aria-hidden="true">PARIS ENTERTAINMENT COMPANY</span><span aria-hidden="true">ULTRAEDGE</span><span aria-hidden="true">DELSEY PARIS</span><span aria-hidden="true">SPIE</span><span aria-hidden="true">MONGA</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-copy reveal">
+        <p class="eyebrow">VOTRE PROCHAIN SITE</p>
+        <h2>PARLONS<br><span>DU TERRAIN.</span></h2>
+        <p>Un besoin récurrent, un site à reprendre ou une intervention ponctuelle : donnez-nous le contexte, nous revenons vers vous avec la bonne approche.</p>
+      </div>
+      <form class="contact-form reveal" id="contactForm">
+        <label><span>SOCIÉTÉ</span><input name="company" required autocomplete="organization" placeholder="Votre société" /></label>
+        <label><span>NOM</span><input name="name" required autocomplete="name" placeholder="Nom et prénom" /></label>
+        <label><span>E-MAIL</span><input type="email" name="email" required autocomplete="email" placeholder="E-mail professionnel" /></label>
+        <label><span>TÉLÉPHONE</span><input name="phone" autocomplete="tel" placeholder="Téléphone" /></label>
+        <label class="full"><span>BESOIN</span><textarea name="message" rows="4" placeholder="Type de site, localisation, fréquence ou besoin ponctuel…"></textarea></label>
+        <button type="submit">DEMANDER UNE VISITE <span>↗</span></button>
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+      <footer>
+        <span>SMITH RÉSEAU NETTOYAGE</span>
+        <span>56 boulevard de Courcerin • 77183 Croissy-Beaubourg</span>
+        <span>© 2026 SRN</span>
+      </footer>
+    </section>
   </main>
-  <script src="script.js"></script>
+
+  <script src="premium.js"></script>
 </body>
 </html>
