@@ -5,14 +5,19 @@ galleryStyles.rel='stylesheet';
 galleryStyles.href='premium-gallery.css';
 document.head.appendChild(galleryStyles);
 
+const imageStyles=document.createElement('link');
+imageStyles.rel='stylesheet';
+imageStyles.href='premium-images.css';
+document.head.appendChild(imageStyles);
+
 const comparisonsGrid=document.querySelector('.comparisons');
 if(comparisonsGrid&&!document.querySelector('.secondary-media')){
   comparisonsGrid.insertAdjacentHTML('beforeend',`
     <article class="comparison reveal" data-compare>
       <div class="compare-media secondary-media">
-        <div class="proof-image secondary-sprite dump-before before" role="img" aria-label="Zone encombrée avant intervention SRN"></div>
+        <div class="proof-image dump-before before" role="img" aria-label="Zone encombrée avant intervention SRN"></div>
         <div class="after-wrap" data-after>
-          <div class="proof-image secondary-sprite dump-after after" role="img" aria-label="Zone remise en état après intervention SRN"></div>
+          <div class="proof-image dump-after after" role="img" aria-label="Zone remise en état après intervention SRN"></div>
         </div>
         <div class="compare-line" data-line><span>↔</span></div>
         <input class="compare-range" type="range" min="0" max="100" value="51" aria-label="Comparer avant et après : restitution d'une zone extérieure" />
@@ -34,6 +39,30 @@ if(comparisonsGrid&&!document.querySelector('.secondary-media')){
       </figure>
     </div>`);
 }
+
+async function loadPhotoData(selector,file){
+  try{
+    const response=await fetch(`assets/${file}.b64`,{cache:'force-cache'});
+    if(!response.ok)throw new Error(`Photo ${file} introuvable`);
+    const data=(await response.text()).trim();
+    document.querySelectorAll(selector).forEach(el=>{
+      el.style.backgroundImage=`url("data:image/webp;base64,${data}")`;
+      el.style.backgroundSize='cover';
+      el.style.backgroundPosition='center';
+    });
+  }catch(error){
+    console.warn(error);
+  }
+}
+
+[
+  ['.exterior-before','exterior-before'],
+  ['.exterior-after','exterior-after'],
+  ['.dump-before','dump-before'],
+  ['.dump-after','dump-after'],
+  ['.detail-shot','detail-shot'],
+  ['.retail-shot','retail-shot']
+].forEach(([selector,file])=>loadPhotoData(selector,file));
 
 const progress=document.getElementById('pageProgress');
 const nav=document.getElementById('nav');
@@ -110,7 +139,7 @@ if(form){
       if(!res.ok)throw new Error('Envoi impossible');
       form.reset();
       if(note)note.textContent='Demande envoyée. L’équipe SRN revient vers vous rapidement.';
-    }catch(err){
+    }catch(error){
       if(note)note.textContent='L’envoi a échoué. Vous pouvez écrire directement à interventionsrnsrc@gmail.com.';
     }finally{
       if(button){
